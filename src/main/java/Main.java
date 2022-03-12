@@ -93,7 +93,7 @@ public class Main {
 
     // Метод получения списка сотрудников из XML документа (задача №2)
     public static List<Employee> parseXML(String fileXml) throws ParserConfigurationException, IOException, SAXException {
-        List<Employee> listTwo = new ArrayList<>();
+        List<Employee> list = new ArrayList<>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.parse(new File(fileXml));
@@ -108,10 +108,10 @@ public class Main {
                 String lastName = element.getElementsByTagName("lastName").item(0).getTextContent();
                 String country = element.getElementsByTagName("country").item(0).getTextContent();
                 int age = Integer.parseInt(element.getElementsByTagName("age").item(0).getTextContent());
-                listTwo.add(new Employee(id, firstName, lastName, country, age));
+                list.add(new Employee(id, firstName, lastName, country, age));
             }
         }
-        return listTwo;
+        return list;
     }
 
     // Метод получения строки из файла JSON (задача №3)
